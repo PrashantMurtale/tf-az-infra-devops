@@ -1,0 +1,59 @@
+# Azure Subscription (optional - can use ARM_SUBSCRIPTION_ID env var or default)
+# subscription_id = "your-subscription-id-here"
+
+# Azure region where resources will be created
+location = "Central India"
+
+# Environment name (optional - defaults to terraform workspace)
+# environment = "dev"
+
+# Administrator username for virtual machines
+admin_username = "azureuser"
+
+# Path to SSH public key file
+# Example paths:
+#   Windows: "C:/Users/username/.ssh/id_rsa.pub"
+#   Linux/Mac: "~/.ssh/id_rsa.pub"
+#   Or use relative path from terraform directory
+ssh_public_key = "~/.ssh/id_rsa.pub"
+
+# Allowed source IP addresses/CIDR blocks for NSG rules
+# IMPORTANT: Replace with your actual IP addresses for security
+# Examples:
+#   allowed_source_addresses = ["203.0.113.0/24", "198.51.100.50"]
+#   For testing only (NOT recommended for production):
+allowed_source_addresses = ["*"]
+
+# VM sizes
+vm_size_jenkins = "Standard_B2ms"
+vm_size_sonar   = "Standard_B2ms"
+
+# OS disk sizes (in GB)
+disk_size_jenkins = 60
+disk_size_sonar   = 80
+
+# VM image configuration
+vm_image_publisher = "Canonical"
+vm_image_offer     = "0001-com-ubuntu-server-focal"
+vm_image_sku       = "20_04-lts"
+vm_image_version   = "latest"
+
+# Network configuration
+vnet_address_space        = ["10.0.0.0/16"]
+subnet_address_prefixes   = ["10.0.1.0/24"]
+
+# High availability options
+enable_availability_zones = false
+vm_zone                   = 1
+
+# Tagging
+project_name  = "Azure DevOps Infrastructure"
+project_owner = "DevOps Team"
+cost_center   = "Engineering"
+
+# Additional tags (optional)
+additional_tags = {
+  # Example: Team = "Platform Engineering"
+  # Example: Backup = "Daily"
+}
+
